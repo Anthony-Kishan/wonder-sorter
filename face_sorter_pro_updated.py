@@ -21,7 +21,7 @@ GROUP_PHOTO_FOLDER = os.path.join(OUTPUT_FOLDER, "Group_Photos")
 stop_flag = threading.Event()
 
 # === MODEL INIT ===
-face_app = FaceAnalysis(name="buffalo_l")
+face_app = FaceAnalysis(name='buffalo_l', root='insightface/models')
 face_app.prepare(ctx_id=1)
 
 
