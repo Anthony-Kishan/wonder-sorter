@@ -1,0 +1,420 @@
+@font-face {
+  font-family: 'Geist';
+  src: url('./fonts/Geist-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  /* Variable weight axis range */
+  font-style: normal;
+  font-display: swap;
+}
+
+.primary-color {
+  color: rgb(37 99 235 / 1);
+}
+
+.success-color {
+  color: rgb(22 163 74 / 1);
+}
+
+.white-color {
+  color: rgb(255 255 255 / 1);
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Geist', 'Segoe UI', sans-serif;
+}
+
+body {
+  font-family: 'Geist', 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, #f8fafc, #f1f5f9);
+}
+
+a {
+  text-decoration: none;
+  color: rgb(71 85 105 / 1);
+}
+
+/* Container */
+.container {
+  max-width: 56rem;
+  margin: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  /* For drag drop highlight */
+  transition: background-color 0.3s ease;
+}
+
+/* Highlight drop area on drag */
+.container.dragover {
+  background-color: #e0f0ff;
+  border-radius: 8px;
+}
+
+/* Top Nav Bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+}
+
+.ghost-button {
+  background: transparent;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.ghost-button:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #0f172a;
+}
+
+.icon-small {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #64748b;
+}
+
+
+/* Header */
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #0f172a;
+}
+
+.header .subtitle {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #475569;
+}
+
+/* Card Base */
+.card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-left {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start !important;
+}
+
+.card-header .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.card-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.file-count-badge {
+  margin-left: auto;
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+.center-btn {
+  display: block;
+  margin: 20px auto 0;
+}
+
+/* Folder Button */
+.folder-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  height: 48px;
+  background: transparent;
+  border: 1px solid #f8fafc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.folder-btn:hover {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+/* Path Text */
+.path-text {
+  font-size: 14px;
+  color: #64748b;
+  padding-left: 8px;
+}
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0 16px;
+}
+
+.start-btn {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  height: 48px;
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  border: none;
+  color: white;
+  font-weight: 500;
+}
+
+.start-btn:hover {
+  background: linear-gradient(90deg, #1d4ed8, #1e40af);
+}
+
+.cancel-btn {
+  height: 48px;
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  padding: 0 24px;
+}
+
+.cancel-btn span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cancel-btn:hover {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #b91c1c;
+}
+
+.recluster-btn {
+  height: 48px;
+  background: transparent;
+  border: 1px solid #93c5fd;
+  color: #2563eb;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.recluster-btn:hover {
+  background: #eff6ff;
+  border-color: #2563eb;
+}
+
+/* Progress Section */
+.progress-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #475569;
+}
+
+.progress-info span:last-child {
+  font-weight: bold;
+  color: #0f172a;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#progress-fill {
+  width: 0%;
+  height: 100%;
+  background: #2563eb;
+  border-radius: 4px;
+  transition: width 0.2s ease;
+}
+
+.horizontal-line {
+  width: 100%;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+/* Reset Cache Button */
+.reset-btn {
+  height: 32px;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: #475569;
+}
+
+.reset-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Results Card */
+.results-list {
+  max-height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: transparent;
+  transition: background 0.2s;
+}
+
+.result-item:hover {
+  background: #f8fafc;
+}
+
+.result-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.result-left .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.result-file {
+  font-size: 16px;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.status-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.result-badge {
+  font-size: 0.85em;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+
+/* Badge types */
+.badge-person {
+  background: #f0fdf4;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+
+.badge-noface {
+  background: transparent;
+  color: #64748b;
+  border-color: #e2e8f0;
+}
+
+.badge-group {
+  background: transparent;
+  color: rgb(147 51 234 / 1);
+  border-color: #e2e8f0;
+}
+
+.badge-error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.badge-processing {
+  background: transparent;
+  color: #2563eb;
+  border-color: #e2e8f0;
+}
+
+/* Animation for loader */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}

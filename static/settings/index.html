@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Settings - Wonder Sorter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="flex gap">
+            <button class="flex items-center gap text-sm" onclick="goToMain()">
+                <img src="../icons/arrow-left.svg" class="icon-sm" alt="Settings Icon">Back to Main
+            </button>
+            <span class="flex items-center gap text-3xl">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-settings-icon lucide-settings primary-color icon-l">
+                    <path
+                        d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                    <circle cx="12" cy="12" r="3" />
+                </svg>
+                Settings
+            </span>
+        </div>
+
+        <p style="color:#64748b; margin: 12px 0 24px;">Configure face recognition and processing parameters.</p>
+
+        <div id="settings-form" class="container">
+            <div>
+                <!-- Similarity Threshold -->
+                <div class="card">
+                    <div class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-m primary-color" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="12" r="6" />
+                            <circle cx="12" cy="12" r="2" />
+                        </svg>
+                        Face Matching Sensitivity
+                        <span class="badge badge-green" id="sim-threshold-badge">Balanced</span>
+                    </div>
+                    <p class="sub-title">Controls how strictly faces are matched to existing people. Higher values
+                        create
+                        more
+                        separate
+                        folders.</p>
+                    <div class="form-group">
+                        <div class="slider-wrapper">
+                            <div class="flex items-center gap">
+                                <label for="sim-threshold-input" class="text-m">Similarity Threshold</label>
+                                <input type="number" id="sim-threshold-input" min="0.1" max="1.0" step="0.01"
+                                    value="0.62" />
+                            </div>
+                            <div class="custom-slider" data-setting="sim_threshold" data-min="0.1" data-max="1.0"
+                                data-step="0.01">
+                                <div class="slider-track">
+                                    <div class="slider-range"></div>
+                                    <div class="slider-thumb" tabindex="0"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-labels">
+                            <span>0.1 (Very Loose)</span>
+                            <span>Default: 0.62</span>
+                            <span>1.0 (Very Strict)</span>
+                        </div>
+
+                        <!-- Guidelines Box -->
+                        <div class="guidelines">
+                            <div class="guidelines-title">
+                                <img src="../icons/info.svg" class="icon-sm" alt="Info Icon">
+                                Usage Guidelines
+                            </div>
+                            <div class="guideline-text">
+                                <div><strong>0.5 or lower:</strong> Groups similar-looking people together (more
+                                    merging)
+                                </div>
+                                <div><strong>0.6–0.7:</strong> Balanced approach, good for most use cases</div>
+                                <div><strong>0.7 or higher:</strong> Creates separate folders for subtle differences
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resize Scale -->
+                <div class="card">
+                    <div class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-m success-color" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path
+                                d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
+                        </svg>
+                        Processing Speed vs Quality
+                        <span class="badge badge-green" id="resize-scale-badge">Balanced</span>
+                    </div>
+                    <p class="sub-title">Reduces image size before face detection. Smaller values process faster but may
+                        miss small faces.</p>
+                    <div class="form-group">
+                        <div class="slider-wrapper">
+                            <div class="flex items-center gap">
+                                <label for="resize-scale" class="text-m">Resize Scale</label>
+                                <input type="number" id="resize-scale" min="0.1" max="1.0" step="0.05" value="0.5" />
+                            </div>
+                            <div class="custom-slider" data-setting="resize_scale" data-min="0.1" data-max="1.0"
+                                data-step="0.05">
+                                <div class="slider-track">
+                                    <div class="slider-range"></div>
+                                    <div class="slider-thumb" tabindex="0"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-labels">
+                            <span>0.1 (Fastest)</span>
+                            <span>Default: 0.5</span>
+                            <span>1.0 (Max Quality)</span>
+                        </div>
+
+                        <!-- Guidelines Box -->
+                        <div class="guidelines">
+                            <div class="guidelines-title">
+                                <img src="../icons/info.svg" class="icon-sm" alt="Info Icon">
+                                Performance Impact
+                            </div>
+                            <div class="guideline-text">
+                                <div><strong>0.25-0.4:</strong> Very fast processing, good for large datasets
+                                </div>
+                                <div><strong>0.5-0.6:</strong> Balanced speed and accuracy</div>
+                                <div><strong>0.7-1.0:</strong> Slower but better detection of small/distant faces</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Min Cluster Size -->
+                <div class="card">
+                    <div class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-m purple-color" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                            <circle cx="9" cy="7" r="4" />
+                        </svg>
+                        Minimum Group Size
+                        <span class="badge badge-green" id="min-cluster-badge">Include All</span>
+                    </div>
+                    <p class="sub-title">Minimum number of similar faces needed to create a person folder. Higher values
+                        ignore rare
+                        appearances.</p>
+                    <div class="form-group">
+                        <div class="slider-wrapper">
+                            <div class="flex items-center gap">
+                                <label for="min-cluster-size" class="text-m">Minimum Cluster Size</label>
+                                <input type="number" id="min-cluster-size" min="1" max="20" step="1" value="2" />
+                            </div>
+                            <div class="custom-slider" data-setting="min_cluster_size" data-min="1" data-max="20"
+                                data-step="1">
+                                <div class="slider-track">
+                                    <div class="slider-range"></div>
+                                    <div class="slider-thumb" tabindex="0"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-labels">
+                            <span>1 (Include All)</span>
+                            <span>Default: 2</span>
+                            <span>20 (Frequent Only)</span>
+                        </div>
+
+                        <!-- Guidelines Box -->
+                        <div class="guidelines">
+                            <div class="guidelines-title">
+                                <img src="../icons/info.svg" class="icon-sm" alt="Info Icon">
+                                Clustering Behavior
+                            </div>
+                            <div class="guideline-text">
+                                <div><strong>1-2:</strong> Creates folders for people who appear even once
+                                </div>
+                                <div><strong>3-5:</strong> Balanced approach, filters out single appearances</div>
+                                <div><strong>6+:</strong> Only creates folders for frequently appearing people</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="unsaved-warning" style="display: none;" class="unsaved-alert">
+                <div class="unsaved-alert-content">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon-m orange-color">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" x2="12" y1="8" y2="12"></line>
+                        <line x1="12" x2="12.01" y1="16" y2="16"></line>
+                    </svg>
+                    <div>
+                        <p class="text-l">You have unsaved changes</p>
+                        <p class="text-sm orange-subtext">Remember to save your settings before closing this page.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex flex-center">
+                <div class="actions">
+                    <button class="btn-outline" id="reset-settings-btn" onclick="resetDefaults()">
+                        <img src="../icons/RotateCcw.svg" class="icon-sm" alt="Reset Icon">
+                        <span class="text-m">Reset to Defaults</span>
+                    </button>
+                    <button class="btn-primary" id="save-settings-btn" onclick="saveSettings()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon-sm white-color">
+                            <path
+                                d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" />
+                            <path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7" />
+                            <path d="M7 3v4a1 1 0 0 0 1 1h8" />
+                        </svg>
+                        <span class="text-m">Save Changes</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="footer">
+                Changes will take effect on the next processing run. © 2025 Anthony Kishan
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

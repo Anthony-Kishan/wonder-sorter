@@ -1,0 +1,29 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for the green shapes -->
+    <linearGradient id="greenGrad1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34d399;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greenGrad2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greenGrad3" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#047857;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Black rounded background -->
+  <rect width="64" height="64" rx="12" ry="12" fill="#000000"/>
+  
+  <!-- First parallelogram (leftmost) -->
+  <path d="M 16 28 L 24 24 L 24 36 L 16 40 Z" fill="url(#greenGrad1)"/>
+  
+  <!-- Second parallelogram (middle) -->
+  <path d="M 28 28 L 36 24 L 36 36 L 28 40 Z" fill="url(#greenGrad2)"/>
+  
+  <!-- Third parallelogram (rightmost) -->
+  <path d="M 40 28 L 48 24 L 48 36 L 40 40 Z" fill="url(#greenGrad3)"/>
+</svg>
